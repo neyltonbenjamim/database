@@ -1,0 +1,24 @@
+{
+    "authors": [
+		{
+			"name" : "Neylton Benjamim",
+			"email" : "neylton.b@hotmail.com" 
+		}
+	],
+	"type": "library",
+	"license":"MIT",
+	"autoload":
+	{
+		"psr-4":{
+            "Database\\":"src/"
+		}
+	},
+	"require":{
+		"php": ">=7.4"
+	},
+
+	"require-dev":{
+		"PHPUnit/PHPUnit":"^9",
+        "phpdocumentor/phpdocumentor": "^2.9"
+	}
+}
