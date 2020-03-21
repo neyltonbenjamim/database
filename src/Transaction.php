@@ -8,6 +8,8 @@
 
 namespace Database;
 
+use \Database\Connection;
+
 class Transaction
 {
 
@@ -18,11 +20,11 @@ class Transaction
         
     }
 
-    public static function open()
+    public static function open($database = null)
     {
         if (empty(self::$conn)) {
-            self::$conn = Connection::open();
-            // inicia a transação
+            self::$conn = Connection::open($database);
+            // Inicia a transação
             self::$conn->beginTransaction();
         }
     }
@@ -43,8 +45,17 @@ class Transaction
     public static function close()
     {
         if (self::$conn) {
+            // Finalizar a transação
             self::$conn->commit();
             self::$conn = NULL;
         }
+    }
+
+    public static function userDatabase($database)
+    {
+        if(self::$conn){
+            self::$conn->exec("use `{$database}`;");
+        }
+        
     }
 }
