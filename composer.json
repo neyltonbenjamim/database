@@ -17,10 +17,5 @@
 	},
 	"require":{
 		"php": ">=7.4"
-	},
-
-	"require-dev":{
-		"PHPUnit/PHPUnit":"^9",
-        "phpdocumentor/phpdocumentor": "^2.9"
 	}
 }
