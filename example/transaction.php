@@ -11,8 +11,3 @@ $conn = Transaction::get();
 $result = $conn->query('SELECT * FROM tab_user');
 var_dump($result->fetchAll());
 
-Transaction::useDatabase('databasesv2');
-
-$result = $conn->query('SELECT * FROM tab_user');
-var_dump($result->fetchAll());
-

@@ -2,13 +2,15 @@
 /**
  * Transaction [TIPO]
  * Description
- * @copyright (c) 19/03/2020, Neylton Benjamim
- * @author Neylton Benjamim
+ * @version    1.0
+ * @package    database
+ * @author     Neylton Benjamim
+ * @copyright (c) 19/03/2020 11:43, Neylton Benjamim
  */
 
 namespace Database;
 
-use \Database\Connection;
+use Database\Connection;
 
 class Transaction
 {
@@ -51,11 +53,5 @@ class Transaction
         }
     }
 
-    public static function useDatabase($database)
-    {
-        if(self::$conn){
-            self::$conn->exec("use `{$database}`;");
-        }
-        
-    }
+    
 }

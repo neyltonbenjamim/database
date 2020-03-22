@@ -1,46 +1,53 @@
 <?php
 /**
- * Insert [TIPO]
+ * Filter [TIPO]
  * Description
- * @package    database/sql
+ * @version    1.0
+ * @package    database
  * @author     Neylton Benjamim
  * @copyright (c) 19/03/2020 11:43, Neylton Benjamim
  */
 
-namespace Database\Sql;
+namespace Database;
 
-use Database\Sql\Statement;
-use Database\Criteria;
+use Database\Expression;
 use Exception;
 use PDO;
 
-final class Update extends Statement
+class Filter extends Expression
 {
 
-    protected $sql;
-    private $columnValues;
+    private $variable;
+    private $operator;
+    private $value;
+    private $value2;
     private $preparedVars;
 
-    public function __construct()
+    /**
+     * Class Constructor
+     * 
+     * @param  $variable = variable
+     * @param  $operator = operator (>, <, =, BETWEEN)
+     * @param  $value    = value to be compared
+     * @param  $value2   = second value to be compared (between)
+     */
+    public function __construct($variable, $operator, $value, $value2 = null)
     {
-        $this->columnValues = [];
-        $this->preparedVars = [];
-    }
+        $this->variable = $variable;
+        $this->operator = $operator;
+        $this->preparedVars = array();
 
-    public function setRowData($column, $value)
-    {
-        if (is_scalar($value) OR is_null($value)) {
-            $this->columnValues[$column] = $value;
+        $this->value = $value;
+
+        if ($value2) {
+
+            $this->value2 = $value2;
         }
     }
 
     public function getPreparedVars()
     {
-        if ($this->criteria) {
-            return array_merge($this->preparedVars, $this->criteria->getPreparedVars());
-        } else {
-            return $this->preparedVars;
-        }
+        return $this->preparedVars;
     }
 
     public function transform($value)
@@ -80,30 +87,21 @@ final class Update extends Statement
         return $preparedVar;
     }
 
-    public function bind($conn)
+    public function dump()
     {
-        foreach ($this->getPreparedVars() as $k => $v) {
-            $conn->bindValue($k, $v[0], $v[1]);
+        $value = $this->transform($this->value);
+
+        if ($this->value2) {
+
+            $value2 = $this->transform($this->value2);
+            return "{$this->variable} {$this->operator} {$value} AND {$value2}";
+        } else {
+            return "{$this->variable} {$this->operator} {$value}";
         }
-        return $conn;
     }
 
-    public function getInstruction()
+    private function getRandomParameter()
     {
-        $this->preparedVars = array();
-        $this->sql = "UPDATE {$this->entity}";
-        if ($this->columnValues) {
-            foreach ($this->columnValues as $column => $value) {
-                $value = $this->transform($value);
-                $set[] = "{$column} = {$value}";
-            }
-        }
-        $this->sql .= ' SET '.implode(', ', $set);
-        
-        if($this->criteria){
-            $this->sql .= ' WHERE '.$this->criteria->dump();
-        }
-
-        return $this->sql;
+        return mt_rand(1000000000, 1999999999);
     }
 }

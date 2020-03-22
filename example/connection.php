@@ -2,6 +2,14 @@
 require __DIR__.'/config.php';
 
 use \Database\Connection;
+
+$conn = Connection::open([
+    'host' => 'localhost',
+    'user' => 'root',
+    'pass' => '',
+    'dbname' => 'databasesv2'
+]);
+
 $conn = Connection::open([
     'host' => 'localhost',
     'user' => 'root',

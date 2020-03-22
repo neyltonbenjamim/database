@@ -6,21 +6,25 @@ define('DBS',array(
         'host'   => 'localhost',
         'user'   => 'root',
         'pass'   => '',
-        'dbname' => 'databasesv1'
+        'dbname' => 'databasesv1',
+        'PREFIXTABLE' => 'tab'
     ),
 
     'databasesv2' => array(
         'host'   => 'localhost',
         'user'   => 'root',
         'pass'   => '',
-        'dbname' => 'databasesv2'
+        'dbname' => 'databasesv2',
+        'PREFIXTABLE' => 'tab'
     ),
 
     'databasesv3' => array(
         'host'   => 'localhost',
         'user'   => 'root',
         'pass'   => '',
-        'dbname' => 'databasesv3'
+        'dbname' => 'databasesv3',
+        'PREFIXTABLE' => 'tab'
     )
 
 ));
+

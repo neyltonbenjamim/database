@@ -10,7 +10,7 @@
 
 namespace Database;
 
-use Exception;
+use PDOException;
 use PDO;
 
 final class Connection
@@ -28,13 +28,13 @@ final class Connection
             if(isset(DBS[$database])){
                 self::$Data = DBS[$database];
             }else{
-                throw new Exception('Nome do Banco de dados não encontrado!');
+                throw new PDOException('Nome do Banco de dados não encontrado!');
             }
         }else if(is_array($database)){
             if(isset($database['host']) && isset($database['user']) && isset($database['pass']) && isset($database['dbname'])){
                 self::$Data = $database;
             }else{
-                throw new Exception('Parametros incorreto');
+                throw new PDOException('Parametros incorreto');
             }
         }else{
             self::$Data = DBS[array_keys(DBS)[0]];   
@@ -45,13 +45,14 @@ final class Connection
         self::$Pass = self::$Data['pass'];
         self::$DBName = self::$Data['dbname'];
 
-        $dsn = 'mysql:host=' . self::$Host . ';dbname=' . self::$DBName;
+        $dsn = 'mysql:host=' . self::$Host.';dbname='.self::$DBName;
         $options = [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'];
         $conn = new PDO($dsn, self::$User, self::$Pass, $options);
 
 
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
         return $conn;
     }
    
