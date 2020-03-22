@@ -51,7 +51,7 @@ class Transaction
         }
     }
 
-    public static function userDatabase($database)
+    public static function useDatabase($database)
     {
         if(self::$conn){
             self::$conn->exec("use `{$database}`;");
