@@ -1,4 +1,6 @@
 {
+	"name": "neylton/database",
+	"description": "Gerenciamento de banco de dados mysql, padrão Record active e layer supertype",
     "authors": [
 		{
 			"name" : "Neylton Benjamim",
