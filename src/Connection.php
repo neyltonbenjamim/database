@@ -1,7 +1,7 @@
 <?php
 /**
- * Connection Bancod de dados Conexão
- * Description
+ * Connection
+ * Description Class para abrir conexão com o banco de dados
  * @version    1.0
  * @package    database
  * @author     Neylton Benjamim
