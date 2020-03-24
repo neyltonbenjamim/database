@@ -23,7 +23,6 @@ define('DBS',array(
 ## index.php
 
 ```php
-<?php
 //Puxando autoload do composer
 require __DIR__.'/vendor/autoload.php';
 //Puxando configuração do banco de dados
