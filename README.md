@@ -40,5 +40,9 @@ class user extends Record
 //Abrindo conexão com o banco de dados
 Transaction::open();
 //Puxando todos usuário do banco de dados
-$user user::all();
+$users = user::all();
+
+foreach ($users as $key => $user) {
+	var_dump($user);
+}
 ```
