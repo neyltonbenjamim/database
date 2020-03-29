@@ -1,6 +1,6 @@
 <?php
 /**
- * Insert [TIPO]
+ * Update [TIPO]
  * Description
  * @package    database/sql
  * @author     Neylton Benjamim
