@@ -4,10 +4,12 @@
     "authors": [
 		{
 			"name" : "Neylton Benjamim",
-			"email" : "neylton.b@hotmail.com" 
+			"email" : "neylton.b@hotmail.com",
+			"role": "Developer" 
 		}
 	],
 	"type": "library",
+	"version": "v1.0.0",
 	"license":"MIT",
 	"autoload":
 	{
@@ -17,5 +19,11 @@
 	},
 	"require":{
 		"php": ">=7.4"
+	},
+
+	"require-dev": {
+		"PHPUnit/PHPUnit":"*"
 	}
+
+
 }
