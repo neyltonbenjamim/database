@@ -60,20 +60,19 @@ abstract class Record
         if (method_exists($this, 'set_' . $property)) {
 
             call_user_func(array($this, 'set_' . $property), $value);
-        } else if (is_scalar($value)) {
+        } else {
             if ($value === NULL) {
-
                 $this->data[$property] = NULL;
-            } else {
-
+            }else if (is_scalar($value)) {
                 $this->data[$property] = $value;
                 unset($this->vdata[$property]);
+                
+            } else {
+                $this->vdata[$property] = $value;
+                unset($this->data[$property]);               
             }
-        } else {
-
-            $this->vdata[$property] = $value;
-            unset($this->data[$property]);
-        }
+        } 
+        
     }
 
     public function __isset($name)

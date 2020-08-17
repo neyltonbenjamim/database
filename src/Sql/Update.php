@@ -45,7 +45,7 @@ final class Update extends Statement
 
     public function transform($value)
     {
-        if (is_scalar($value)) {
+        if (is_scalar($value) or is_null($value)) {
             $result = $this->pdoParam($value);
         } else {
             foreach ($value as $v) {
