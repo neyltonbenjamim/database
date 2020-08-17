@@ -9,7 +9,6 @@
 		}
 	],
 	"type": "library",
-	"version": "v1.0.1",
 	"license":"MIT",
 	"autoload":
 	{
