@@ -71,8 +71,7 @@ abstract class Record
                 $this->vdata[$property] = $value;
                 unset($this->data[$property]);               
             }
-        } 
-        
+        }
     }
 
     public function __isset($name)
