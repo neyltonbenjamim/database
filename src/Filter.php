@@ -52,7 +52,11 @@ class Filter extends Expression
 
     public function transform($value)
     {
+<<<<<<< HEAD
         if (is_scalar($value)) {
+=======
+        if (is_scalar($value) OR is_null($value)) {
+>>>>>>> 15646d7f3e0b3263b96e463c472311e85d5c960d
             $result = $this->pdoParam($value);
         } else {
             foreach ($value as $v) {
