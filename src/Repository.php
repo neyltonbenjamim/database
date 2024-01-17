@@ -156,7 +156,14 @@ class Repository
             
             $sql->setEntity($this->getEntity());
             $sql->setCriteria($criteria);
+
+            $result = $conn->prepare($sql->getInstruction());
+            $result = $sql->bind($result);
+            $result->execute();
+            
             
         }
+
+        return $result;
     }
 }
