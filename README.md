@@ -2,11 +2,7 @@
 Gerenciamentos de bancos de dados MySQL
 # Instalando database
 ```shell
-<<<<<<< HEAD
-composer require neylton/database
-=======
 composer require neyltonbenjamim/database
->>>>>>> 15646d7f3e0b3263b96e463c472311e85d5c960d
 ```
 # Criando arquivo de configuração
 ## config.php
