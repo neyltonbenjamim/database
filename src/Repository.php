@@ -156,7 +156,6 @@ class Repository
             
             $sql->setEntity($this->getEntity());
             $sql->setCriteria($criteria);
-<<<<<<< HEAD
 
             $result = $conn->prepare($sql->getInstruction());
             $result = $sql->bind($result);
@@ -166,9 +165,5 @@ class Repository
         }
 
         return $result;
-=======
-            
-        }
->>>>>>> 15646d7f3e0b3263b96e463c472311e85d5c960d
     }
 }
