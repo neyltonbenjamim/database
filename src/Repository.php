@@ -105,7 +105,7 @@ class Repository
         return $this;
     }
     
-    public function load(Criteria $criteria = NULL )
+    public function load(?Criteria $criteria = NULL )
     {
         if(!$criteria){
             $criteria = isset($this->criteria) ? $this->criteria : new Criteria;
@@ -135,7 +135,7 @@ class Repository
         return $this->load();
     }
     
-    public function update($setValues = null, Criteria $criteria = null)
+    public function update($setValues = null, ?Criteria $criteria = null)
     {
         if(!$criteria){
             $criteria = isset($this->criteria) ? $this->criteria : new Criteria;
